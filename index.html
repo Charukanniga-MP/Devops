@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DevOps Pipeline Status</title>
+  <title>DevOps Pipeline Dashboard</title>
   <style>
     body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 20px; }
     .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
     .status { font-size: 18px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
     .success { background-color: #d4edda; color: #155724; }
     .failure { background-color: #f8d7da; color: #721c24; }
+    button { margin-right: 10px; padding: 5px 10px; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🔧 DevOps Pipeline Dashboard</h1>
-    <div class="status success">✅ Build: Successful</div>
-    <div class="status success">✅ Test: All Passed</div>
-    <div class="status failure">❌ Deployment: Failed</div>
+    <div id="build" class="status success">✅ Build: Successful</div>
+    <div id="test" class="status success">✅ Test: Successful</div>
+    <div id="deploy" class="status failure">❌ Deploy: Failed</div>
+
+    <h3>🔄 Update Status</h3>
+    <button onclick="updateStatus('build', 'success')">Build Success</button>
+    <button onclick="updateStatus('build', 'failure')">Build Fail</button>
+    <button onclick="updateStatus('test', 'success')">Test Success</button>
+    <button onclick="updateStatus('test', 'failure')">Test Fail</button>
+    <button onclick="updateStatus('deploy', 'success')">Deploy Success</button>
+    <button onclick="updateStatus('deploy', 'failure')">Deploy Fail</button>
   </div>
+
+  <script>
+    function updateStatus(stage, status) {
+      const el = document.getElementById(stage);
+      el.className = 'status ' + status;
+      el.innerHTML = (status === 'success' ? '✅' : '❌') + ' ' + stage.charAt(0).toUpperCase() + stage.slice(1) + ': ' + (status === 'success' ? 'Successful' : 'Failed');
+    }
+  </script>
 </body>
 </html>
