@@ -1,0 +1,17 @@
+DevOps Practice Notes
+----------------------
+
+[✔] Installed Git and configured username/email
+[✔] Initialized local Git repository
+[✔] Added HTML/CSS/JS dashboard
+[✔] Created Python and Java test scripts
+[✔] Wrote shell script for environment setup
+[ ] Created CI/CD pipeline config (YAML)
+[ ] Added .gitignore and README
+[ ] Tested push to GitHub
+
+Helpful Commands:
+- git init
+- git add .
+- git commit -m "Initial commit"
+- git push origin main
