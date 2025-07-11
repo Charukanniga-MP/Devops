@@ -1,0 +1,30 @@
+Manual Deployment Steps
+------------------------
+
+1. Verify that all code has been committed and pushed to GitHub.
+2. SSH into the production server using your credentials.
+   Command: ssh user@yourserver.com
+
+3. Pull the latest changes from the repo:
+   Command: git pull origin main
+
+4. Stop the current running service:
+   Command: sudo systemctl stop myapp.service
+
+5. Run setup or migration scripts (if any):
+   Command: python setup.py install
+
+6. Start the service again:
+   Command: sudo systemctl start myapp.service
+
+7. Check logs for errors:
+   Command: tail -f /var/log/myapp.log
+
+8. Validate deployment by accessing the web dashboard.
+   URL: http://yourserver.com/dashboard
+
+Notes:
+- If anything fails, revert using `git checkout` to the last stable commit.
+- Always inform the team once deployment is complete.
+
+Last updated: July 2025
